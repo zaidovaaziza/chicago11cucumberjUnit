@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "/Users/Azika/Desktop/chicago11cucumberjUnit/src/test/resources/features",
         glue = "steps",
         tags = "@wikipedia",
-        dryRun = false
+        dryRun = true
 )
 public class Runner {
 
