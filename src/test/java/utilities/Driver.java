@@ -15,6 +15,10 @@ private Driver(){
 
 private static WebDriver driver;
 
+public static WebDriver getDriverReference(){
+        return driver;
+}
+
 public static WebDriver getDriver(){
         if(driver == null){
                 String browser = Config.getProperty("browser");
@@ -24,7 +28,8 @@ public static WebDriver getDriver(){
                 } else if ("firefox".equals(browser)) {
                         WebDriverManager.firefoxdriver().setup();
                         driver = new FirefoxDriver();
-                } else {
+                }
+                        else {
                         WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
                 }

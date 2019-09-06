@@ -5,6 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import utilities.APIRunner;
 import utilities.Driver;
 
 public class Hooks {
@@ -27,9 +28,13 @@ public class Hooks {
         System.out.println("Hooks clean up");
         System.out.println(scenario.getName());
         System.out.println(scenario.getStatus());
-        if (scenario.isFailed()) {
+        if (scenario.isFailed() && Driver.getDriverReference()!=null) {
             byte[] screenShot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenShot, "image/png");
+        }
+
+        if(scenario.isFailed() && APIRunner.getCr() != null){
+            scenario.write(APIRunner.getCustomResponse().getJsonResponse());
         }
     }
 }

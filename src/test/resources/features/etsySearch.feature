@@ -1,6 +1,7 @@
 Feature: Etsy search feature
 
   @etsy
+
   Scenario: Etsy title verification using search feature
   Given  User is on Etsy Homepage
   When User types "Wooden Spoon" in the search box

@@ -38,7 +38,7 @@ EtsyHomePage etsyHomePage = new EtsyHomePage();
 
         String actualTitle = Driver.getDriver().getTitle();
 
-        String expectedTitle = string + " | Etsy";
+        String expectedTitle = string +  " | Etsy";
 
         Assert.assertTrue( actualTitle.equalsIgnoreCase(expectedTitle));
 
